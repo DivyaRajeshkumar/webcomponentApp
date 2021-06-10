@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+  <style>
+    body {
+      font-family: Lato;
+      font-size: 18px;
+      background: #fff;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header-component></header-component>
+  <footer-component></footer-component>
+  <Banner-component></Banner-component>
+  <vaccine-tab></vaccine-tab>
+ 
+  <script type="module">
+  import { html, css, LitElement } from 'lit-element';
+  import '@lion/tabs/define';
+  import '@lion/button/define';
+
+  class VaccineTabs extends LitElement {
+
+  static get styles() {
+    return css`
+        .tabs-wrap {
+            width: 80%;
+            margin: 0px auto;
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .register-wrap {
+            width: 100%;
+            text-align: center;
+        }   
+        :host {
+            background: #000;
+        }        
+    `
+}
+
+  render() {
+    return  html`
+    <section class="tabs-wrap">
+    <lion-tabs>
+      <button slot="tab">CovidShield</button>
+      <p slot="panel">Info pageLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>          
+      <button slot="tab">Covaxin</button>
+      <p slot="panel">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      <button slot="tab">Sputnik</button>
+      <p slot="panel">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      <button slot="tab">Vaccine 4</button>
+      <p slot="panel">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    </lion-tabs>
+    </section>
+    <div class="register-wrap">
+        <button @click="${this.handleAppendClick}"><a href="/demo/registration.html">Register</a></button>
+    </div>
+  `;          
+}
+
+  handleAppendClick() {
+    console.log("inside home");
+    this.dispatchEvent(new CustomEvent('pageName', {detail: 'chattext'}));
+}
+
+}
+
+customElements.define('vaccine-tab', VaccineTabs);
+
+</script>
+  
+  <script type="module" src="../src/components/header.js"></script>
+  <script type="module" src="../src/components/footer.js"></script>
+  <script type="module" src="../src/components/banner.js"></script>
+</body>
+</html>

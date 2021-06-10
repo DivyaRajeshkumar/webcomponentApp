@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+  <style>
+     body {
+      font-family: Lato;
+      font-size: 18px;
+      background: #fff;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+    <header-component></header-component>
+    <footer-component></footer-component>
+    <Banner-component></Banner-component>
+    <faq-component></faq-component>
+    
+
+  <script type="module">
+    import { html, css, LitElement } from 'lit-element';
+import '@lion/accordion/define';
+import {unsafeHTML} from 'lit-html/directives/unsafe-html';
+
+const accordionTemplate = `
+        <div class="accordion-wrap">
+        <lion-accordion>
+        <h3 slot="invoker">
+        <p>Registration</p>
+        </h3>
+        <p slot="content">How to register? <br/>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        <br/> <br/>When I will get OTP? <br/>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+
+        <h3 slot="invoker">
+        <p>Laboriosam</p>
+        </h3>
+        <p slot="content">
+        Laboriosam sequi odit cumque, enim aut assumenda itaque quis voluptas est quos fugiat unde
+        labore reiciendis saepe, iure, optio officiis obcaecati quibusdam.
+        </p>
+        </lion-accordion>
+        </div>`;
+
+
+class Faq extends LitElement {
+
+    static get styles() {
+        return css` 
+              .accordion-wrap {
+                  width: 70%;
+                  margin: 0 auto;
+              }
+              h3 {
+                background: #00bcd412;
+                margin: 10px 0;
+              }
+        `
+      }
+    
+      render() {
+        return html`
+            ${unsafeHTML(accordionTemplate)}
+        `;
+      }
+    
+}
+  customElements.define('faq-component', Faq);
+  </script>
+  <script type="module" src="../src/components/header.js"></script>
+  <script type="module" src="../src/components/footer.js"></script>
+  <script type="module" src="../src/components/banner.js"></script>
+
+</body>
+</html>

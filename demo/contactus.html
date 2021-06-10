@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+  <style>
+     body {
+      font-family: Lato;
+      font-size: 18px;
+      background: #fff;
+      margin: 0;
+    }
+    .address-wrap {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <header-component></header-component>
+    <footer-component></footer-component>
+    <Banner-component></Banner-component>
+    <div class="address-wrap">
+        <h4>Address:</h4>
+        <slot>Address line1</slot><br/>
+        <slot>Address line2</slot><br/>
+        <slot>City</slot><br/>
+        <slot>State</slot>
+
+    </div>
+    
+
+  <script type="module">
+    
+  </script>
+  <script type="module" src="../src/components/header.js"></script>
+  <script type="module" src="../src/components/footer.js"></script>
+  <script type="module" src="../src/components/banner.js"></script>
+ 
+</body>
+</html>
